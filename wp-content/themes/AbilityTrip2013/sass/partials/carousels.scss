@@ -1,0 +1,179 @@
+
+.fullLbx{
+	position: relative;
+	top:-120px;
+	width:100%;
+	height:600px;
+	margin-bottom: -80px;
+}
+.fullLbx .letterboxItem{
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-size: cover;
+	height:inherit;
+	width:100%;
+}
+.letterboxItem{
+	position: absolute;
+}
+.controls{
+	display:none;
+}
+.controls a{
+	position: absolute;
+	top:290px;
+	text-indent: -10000px;
+	height:57px;
+	width:57px;
+	background-image:url('../img/sprite.png');
+	background-position: -54px -64px;
+	background-repeat: no-repeat;
+	opacity: 0.6;
+	z-index:10;
+	@include transition(all 0.5s ease-out);
+	&.left{
+		left:20px;
+	}
+	&.right{
+		right:20px;
+		background-position:-116px -64px;
+	}
+	&:hover{
+		opacity:1;
+	}
+}
+
+.popularCarouselControls.controls a{
+	top:75px;
+	height:25px;
+	width:15px;
+	background-position:-133px -130px;
+	opacity: 1;
+	&.right{
+		background-position:-153px -130px;
+	}
+}
+
+.letterboxContent{
+	position: absolute;
+	top:215px;
+	left:280px;
+	padding-top:40px;
+	@include backgroundColour(255,255,255,0.8);
+	text-align: center;
+}
+
+.letterboxContent h1, .letterboxContent h2, .letterboxContent p{
+	opacity: 0;
+	top:-10px;
+	position: relative;
+	.active &{
+		animation:appear 0.4s $defaultEasing forwards;
+		-ms-animation:appear 0.4s  $defaultEasing forwards;
+		-webkit-animation:appear 0.4s  $defaultEasing forwards;
+		-moz-animation:appear 0.4s $defaultEasing forwards;
+		-o-animation:appear 0.4s $defaultEasing forwards;
+	}
+	.complete &{
+		top:0;
+		opacity:1;
+	}
+}
+.letterboxContent p{
+	font-size: 0.86em;
+	padding:0 40px 40px 40px;
+}
+
+@-webkit-keyframes appear{
+	0% {
+		top: -10px;
+		opacity: 0;
+	}	
+	100% {
+		top:0;
+		opacity: 1;
+	}
+}
+@keyframes appear{
+	0% {
+		top: -10px;
+		opacity: 0;
+	}	
+	100% {
+		top:0;
+		opacity: 1;
+	}
+}
+@-o-keyframes appear{
+	0% {
+		top: -10px;
+		opacity: 0;
+	}	
+	100% {
+		top:0;
+		opacity: 1;
+	}
+}
+@-moz-keyframes appear{
+	0% {
+		top: -10px;
+		opacity: 0;
+	}	
+	100% {
+		top:0;
+		opacity: 1;
+	}
+}
+@-ms-keyframes appear{
+	0% {
+		top: -10px;
+		opacity: 0;
+	}	
+	100% {
+		top:0;
+		opacity: 1;
+	}
+}
+.carouselNav{
+	position: absolute;
+	top:718px;
+	z-index: 1;
+}
+.carouselNav li{
+	display:block;
+	margin-left: 5px;
+	float:left;
+	width:15px;
+	height:15px;
+	background:url('../img/sprite.png') no-repeat -83px -135px;
+}
+.popularCarouselContainer{
+	display:none;
+}
+.popularCarouselContainer ul{
+	position: relative;
+	overflow: hidden;
+	height:170px;
+	left:0;
+}
+.popularCarouselContainer li{
+	list-style: none;
+	float:left;
+	display:block;
+	margin:0;
+	position:relative;
+	width:220px;
+}
+.popularCarouselContainer li span{
+	position: absolute;
+	bottom:-30px;
+	left:0;
+	padding:20px;
+	@include backgroundColour(255,255,255,0.8);
+	opacity: 0;
+	@include transition(all 0.5s ease-out);
+}
+.popularCarouselContainer li a:hover span{
+	bottom:-10px;
+	opacity:1;
+}

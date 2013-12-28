@@ -1,0 +1,365 @@
+/* CSS adjustments for secondary page layout */
+#body_center {
+	width : 625px;
+}
+#body_right {
+	width : 205px;
+}
+
+#breadcrumb{
+padding : 0px 0px;
+	margin : 0px 0px 5px 0px;
+	color:#0033cc;
+	font-size:13px;
+}
+#breadcrumb a{
+		color:#0033cc;
+		text-decoration:underline;
+}
+#breadcrumb a:hover{
+		text-decoration:none;
+}
+
+#body_nav{
+	margin:10px 0px;
+	padding : 5px 5px;
+	width :610px;
+	border-width : 1px;
+	border-color : #ed823e;
+	border-style : solid;
+}
+/*#body_nav .parent_nav td {
+vertical-align: top;
+width :111px;
+}*/
+#body_nav .parent_nav ul {
+margin: 0;
+padding: 0;
+}
+#body_nav .parent_nav li {
+list-style:none;
+width: 111px;
+float: left;
+}
+/*#body_nav .parent_nav td a{
+display: block;
+margin: 2px 2px 2px 2px;
+	padding : 2px 2px 2px 2px;
+}
+*/
+#body_nav .parent_nav td a {
+display: block;
+margin: 2px 2px 2px 2px;
+	padding : 2px 2px 2px 2px;
+}
+
+#body_center h2, #blog_style h2{
+margin: 15px 0px 0px 0px;
+	padding : 0px 0px 0px 25px;
+}
+
+#blog_style{
+padding : 0 0;
+	margin : 0 0;
+}
+
+#blog_style h1{
+margin: 5px 0px 0px 0px;
+	padding : 0px 0px 0px 0px;
+	font: normal 22px/25px Arial, Helvetica,Tahoma, Verdana,  sans-serif;
+	color: #666666;
+}
+
+#blog_style h3{
+padding : 10px 0 0 0;
+	margin :0px 0px;
+}
+
+#blog_style .post_info{
+margin: 0px 5px 5px 0px;
+	padding : 0px 0px 0px 0px;
+	width :625px;
+}
+#blog_style .discuss{
+	margin:10px 0px;
+	padding : 5px 5px;
+	width :425px;
+	background-color: #fdf4ee;
+	border-width : 1px;
+	border-color : #ed823e;
+	border-style : solid;
+}
+#blog_style .discuss h4{
+margin: 0px 0px 0px 0px;
+	padding : 5px 0px 5px 35px;
+	background-image: url(../images/AT-shout_icon.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-position:left center;
+	font: normal 14px/17px Arial, Helvetica,Tahoma, Verdana,  sans-serif;
+	color: #ed823e;
+}
+
+#body_left .discuss{
+	margin:10px 0px;
+	padding : 5px 5px;
+	width :170px;
+	background-color: #fdf4ee;
+	border-width : 1px;
+	border-color : #ed823e;
+	border-style : solid;
+}
+#body_left .discuss h4{
+margin: 0px 0px 0px 0px;
+	padding : 5px 0px 5px 35px;
+	background-image: url(../images/AT-shout_icon.gif);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-position:left center;
+	font: normal 14px/17px Arial, Helvetica,Tahoma, Verdana,  sans-serif;
+	color: #ed823e;
+}
+
+.blue_block_right{
+padding : 5px 10px;
+	margin : 10px 0;
+	width: 178px;
+	border-width : 1px;
+	border-color : #35b0e9;
+	border-style : solid;
+}
+
+.img_block_right{
+padding : 2px 2px 0px 2px;
+	margin : 0px 0px 10px 0px;
+	width: 194px;
+	border-width : 1px;
+	border-color : #ed823e;
+	border-style : solid;
+}
+.img_block_right h3{
+padding : 5px 0;
+	margin : 0 0;
+	font-size: 12px;
+	color: #666666;
+}
+.img_block_right img{
+padding : 0px 0px;
+	margin : 0px 0px;
+}
+.filler img{
+padding : 0px 0px;
+	margin : 0px 0px;
+	width:200px;
+}
+#body_right p.launch_vid{
+padding : 2px 0px;
+	margin : 0px 0px;
+}
+.launch_vid a{
+padding : 0px 20px 0px 0px;
+	margin : 0px 0px;
+	font-size: 12px;
+	color: #ed823e;
+	background-image:url(../images/AT-play_vid.gif);
+	background-position:right top;
+	background-repeat:no-repeat;
+	text-decoration:none;
+}
+.launch_vid a:hover{
+	text-decoration:underline;
+}
+.advert_right{
+padding : 2px 2px 0px 2px;
+	margin : 0px 0px 10px 0px;
+	width: 194px;
+	border-width : 1px;
+	border-color : #ed823e;
+	border-style : solid;
+}
+.advert_left{
+padding : 2px 2px 0px 2px;
+	margin : 0px 0px 10px 0px;
+	width: 194px;
+	border-width : 1px;
+	border-color : #ed823e;
+	border-style : solid;
+}
+
+/*Mobile Page */
+
+#mpage {
+	width:560px;
+}
+
+#mpage ul{
+margin-top:-12px;	
+}
+
+#mpage ul li{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	line-height:18px;
+}
+
+#mpage .head1{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:24px;
+	font-weight:bold;
+	color:#ef8239;
+	margin-top:30px;
+	margin-bottom:15px;
+	letter-spacing:.5px;
+}
+
+#mpage .head2{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:20px;
+	font-weight:bold;
+	color:#ef8239;
+	margin-top:30px;
+	margin-bottom:15px;		
+}
+
+#mpage .mcontent{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	margin-top:15px;
+	line-height:18px;
+}
+
+#mpage .bold{
+font-weight:bold;	
+}
+
+#mpage .cblock{
+	height:282px;
+	margin-left:50px;
+	float:left;
+}
+
+#mpage .cblock p{
+margin-bottom:30px;
+font-size:16px;
+}
+
+#mpage .cblock p.head2{
+margin-top:67px;
+font-size:20px;
+	
+}
+
+#mpage .cblock a{
+color:#ef8239;
+}
+#mpage .city{
+float:left;	
+margin-right:35px;
+margin-bottom:20px;
+text-align:center;
+}
+#mpage .city a{
+text-decoration:none;	
+}
+#mpage .cname{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+	font-weight:bold;
+	color:#ef8239;
+	margin-bottom:10px;
+	display:inline-block;
+}
+#mpage .wname{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+	color:#31b2ef;
+}
+
+
+/* Writers CSS */
+
+#wcontent{
+	width:584px;
+}
+#wcontent ul{
+margin-top:-12px;	
+}
+#wcontent ul li{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	line-height:18px;
+}
+#wcontent .head1{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:24px;
+	font-weight:bold;
+	color:#ef8239;
+	margin-top:30px;
+	margin-bottom:15px;
+	letter-spacing:.5px;
+}
+#wcontent .head2{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:20px;
+	font-weight:bold;
+	color:#ef8239;
+	margin-top:30px;
+	margin-bottom:15px;		
+}
+#wcontent .mcontent{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:17px;
+	margin-top:15px;
+	line-height:18px;
+}
+#wcontent .bold{
+	font-weight:bold;	
+}
+#wcontent .cblock{
+	height:282px;
+	margin-left:50px;
+	float:left;
+}
+#wcontent .cblock p{
+	margin-bottom:30px;
+}
+#wcontent .cblock p.head2{
+	margin-top:67px;	
+}
+#wcontent .cblock a{
+	color:#ef8239;
+}
+#wcontent #writerpic{
+	border:solid 1px #31aae7;	
+	position:relative;
+}
+#wcontent #namebar{
+	position:relative;
+	z-index:50;
+	float:right;
+	margin-top:-39px;
+	margin-right:50px;
+}
+#wcontent #wname{
+position:relative;
+z-index:60;
+float:right;
+display:block;
+width:220px;
+margin-top:-45px;
+margin-right:51px;
+font-family:Arial, Helvetica, sans-serif;
+font-size:24px;
+color:#fff;
+font-weight:bold;
+}
+#wcontent #whead{
+	text-align:center;
+}
+#wcontent #wbar{
+margin-top:20px;	
+}
+
+.clear{
+clear:both;
+}

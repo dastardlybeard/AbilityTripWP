@@ -1,0 +1,514 @@
+
+
+@import "compass";
+@import "compass/css3/transform";
+@import "compass/reset";
+@import "partials/1140";
+@import "partials/ie";
+
+$orange: #ed823e;
+$blue: #3495d0; 
+
+$defaultEasing: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+
+@mixin backgroundColour($red, $green, $blue, $opacity){
+	background-color: rgb($red, $green, $blue);
+	background-color: rgba($red, $green, $blue, $opacity);
+}
+
+$headingColor: $orange;
+$linkColor: $blue;
+
+body{font-family: trebuchet MS, arial, tahoma, times new roman; font-size: 16px; color:#000; background-color: #333; line-height:1.3;}
+.pageContents, .adSpaceTop{
+	background-color:#fff;
+	width:100%;
+}
+h1,h2,h3,h2 a{margin-bottom:20px;color:$headingColor;}
+h1{font-size: 2em;}
+h2{font-size: 1.4em;}
+h3{font-size: 0.85em; margin-bottom:10px;}
+p, span{margin-bottom: 10px;font-size: 0.75em;}
+p span{font-size: 1em;color: $linkColor;}
+a{color:#000;}
+p a{color:$linkColor;}
+article{display: block;}
+article h2, #sideBar h2{margin: 20px 0;}
+article .section:first-child h2, #sideBar .quicklinks h2{margin-top: 0;}
+article h3{margin-bottom: 10px; color:$linkColor;text-transform: uppercase;}
+article a{color:$linkColor;}
+
+.fRight{float:right;}
+.fLeft{float:left;}
+.posRel{position: relative;}
+.cBoth{clear:both;}
+.hidden{display:none;}
+.center{text-align: center;}
+.visible{display:block !important;}
+.pageContents{position: relative;}
+.transBG{@include backgroundColour(255,255,255,0.6);position: relative; z-index:1000;}
+.sticky{position:fixed;top:10px;}
+.stuck{position:absolute;bottom:10px;}
+.mobileOnly{display:none;}
+.desktopOnly{display:block;}
+
+/* HEADER AND NAV STYLES */
+
+.header{
+	padding:10px 0;
+}
+.topNavContainer div ul{
+	float:right;
+}
+.utilityNav ul, .topNavContainer form{
+	float:left;
+	display: block;
+}
+
+.topNavContainer form{
+	margin-left: 20px;
+	float: right;
+
+}
+.topNavContainer form input{
+	@include border-radius(10px);
+}
+.screen-reader-text{
+	display:none;
+}
+.topNavContainer .search-submit{
+	width:24px;
+	height:24px;
+	background: url("../img/sprite.png") no-repeat scroll -106px -130px rgba(0, 0, 0, 0);
+	text-indent: -10000px;
+	border:none;
+	cursor: pointer;
+}
+
+.utilityNav li, .mainNav li, .footerNav li, .socialLinks li, .destinationFilter li{
+	display: inline-block;
+	margin-left:10px;
+}
+.utilityNav a, .mainNav li a, .footerNav li a, .socialLinks li a, .destinationFilter li a{
+	font-size: 0.75em;
+	text-decoration:none;
+	font-weight: bold;
+	color:#333;
+}
+
+.utilityNav a{
+	font-weight: normal;
+}
+
+.utilityNav a:hover, .utilityNav .current-menu-item a{
+	color:$blue;
+}
+
+.mainNav{
+	clear:both;
+	padding-top: 30px;
+}
+
+.mobileNavTrigger{
+	text-decoration: none;
+	float: right;
+}
+.mobileNavTrigger span{
+	font-size:1em;
+}
+.mobileNav{
+	display:none;
+	clear: both;
+}
+
+.mobileNav li a{
+	float: right;
+}
+
+.mainNav li{
+	position: relative;
+}
+.mainNav li a{
+	font-size: 1.2em;
+}
+
+.mainNav li .locationIndicator{
+	position: absolute;	
+	background-color: $orange;
+	width: 50px;
+	height:4px;
+	top:25px;
+	left:0;
+	display:none;
+	@include box-shadow($orange 0 0 4px);
+}
+
+.mainNav li.current-menu-item .locationIndicator{
+	display:block;
+}
+
+/* MAIN BODY STYLES */
+
+#mainContent{
+	position: relative;
+}
+
+.destinationFilter p, .destinationFilter ul{
+	float:left;
+	color:$orange;
+}
+.destinationFilter ul{
+	margin-top:-4px;
+}
+
+.locations{
+	min-height: 170px;
+}
+
+article p span, span.caption{
+	color:$orange;
+}
+span.caption{
+	display: block;
+	font-size:1em;
+}
+
+#sideBar .quicklinks ul li{
+	display: block;
+	margin-bottom: 5px;
+}
+#sideBar .quicklinks ul li a{
+	padding-left: 20px;
+	text-decoration: none;
+	color:#333;
+}
+#sideBar .quicklinks ul li a:hover{
+	color:#ccc;
+}
+#sideBar .quicklinks ul li a.selected{
+	background: url(../img/sprite.png) no-repeat -160px -234px;
+}
+#sideBar .postGallery ul li{
+	display: block;
+	margin:0 10px 10px 0;
+	float:left;
+}
+#sideBar .postGallery ul li a{
+	border:1px solid #fff;
+	display: block;
+	height:100px;
+}
+
+#sideBar .postGallery ul li a.selected, .sideBar .postGallery ul li a:hover{
+	border:1px solid #000;
+	display: block;
+}
+#sideBar .postGallery {
+	position: relative;
+	height:auto;
+	background-color:#fff;
+	padding: 10px 0;
+	overflow:visible;
+	top:0;
+	right:0;
+	width:inherit;
+	@include transition(all 0.3s ease-out);
+	&.active{
+		border:1px solid #000;
+		top: -200px;
+		right: 700px;
+		width: 825px;
+		padding-left: 40px;
+		height: 500px;
+	}
+}
+
+#sideBar .postGallery #mainGalleryImage{
+	position: relative;
+    top: -43px;
+    float: left;
+}
+
+#sideBar .postGallery #mainGalleryImage h3{
+	margin-bottom:0;
+}
+
+#sideBar .postGallery .closeBtn{
+	background: url("../img/sprite.png") no-repeat scroll -76px -160px rgba(0, 0, 0, 0);
+    padding: 6px 50px 5px 0;
+    position: absolute;
+    right: 40px;
+    top: 25px;
+    text-decoration: none;
+    color:#333;
+}
+
+#sideBarStatic img, #sideBarStatic span, #sideBarStatic div{
+	float:right;
+	clear:both;
+}
+
+.destination{
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.destination a span{
+	position: absolute;
+	bottom:-30px;
+	left:0;
+	padding:20px;
+	@include backgroundColour(255,255,255,0.8);
+	opacity: 0;
+	@include transition(all 0.5s ease-out);
+}
+
+.destination a:hover span{
+	bottom:-10px;
+	opacity:1;
+}
+
+/* TRAVEL DOWNLOAD STYLES */
+
+.downloadableItem{
+	border:1px solid #ccc;
+	display: block;
+	text-decoration: none;
+	margin-top:10px;
+	@include transition(all 0.4s ease-out);
+	&:hover{
+		background-color:rgba(204,204,204,0.1);
+	}
+}
+
+.downloadableItem span{
+	display: block;
+	padding:10px;
+}
+
+.downloadableItem .title{
+	color:$blue;
+}
+
+.downloadableItem img{
+	padding:0 10px;
+}
+.journals div{
+	margin-bottom: 20px;
+}
+.journals div:nth-child(even){
+	border-top: 1px solid #ccc;
+}
+
+.journals div:nth-child(even) h2, .journals div:nth-child(even) p, .journals div:nth-child(even) a{
+	float:right;
+	text-align: right;
+}
+
+/* Form styles */
+#simplr-form{
+	background-color: #EEEEEE;
+    border: 1px solid #D3D3D3;
+    border-radius: 3px;
+    clear: both;
+    margin: 15px 0;
+    padding: 0;
+}
+
+#simplr-form form{
+	padding:20px;
+}
+
+#simplr-form form .simplr-field, #simplr-form form .option-field  {
+	margin-bottom: 10px;
+}
+
+#simplr-form .required, .simplr-message.error{
+	color:red;
+}
+#simplr-form label{
+	display: block;
+    width: 150px;
+}
+#simplr-form label span{
+	display: block;
+	float: left;
+}
+
+#simplr-form input[type="text"], #simplr-form input[type="password"]{
+	float:left;
+	background: none repeat scroll 0 0 #FAFAFA;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    padding: 3px 0;
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+}
+.button, .vfb-submit{
+	background-color: #3495D0;
+    border: medium none;
+    border-radius: 30px;
+    color: #FFFFFF;
+    font-size: 1em;
+    margin: 15px 0;
+    padding: 10px 30px;
+    cursor: pointer;
+}
+
+.button:hover, .vfb-submit:hover {
+	background-color: #2a76a4;
+}
+
+#subscription-toggle{
+	display: block;
+	clear: both;
+}
+
+/* FOOTER STYLES */
+
+#pageFooter{
+	position: relative;
+	overflow: hidden;
+}
+
+.footer{
+	background-color: #333;
+	height:40px;
+	padding:20px;
+	margin-top:30px;
+}
+.footerNav{
+	text-transform: uppercase;
+	padding:15px 0 30px 0;
+	float:right;
+}
+.footerNav li a{
+	color:#fff;
+}
+.socialLinks{
+	float: right;
+	margin-left: 20px;
+}
+.socialLinks li a{
+	display: block;
+	height:43px;
+	width:43px;
+	text-indent: -10000px;
+	background: url('../img/sprite.png') no-repeat -4px -7px;
+	opacity: 0.7;
+	@include transition(all 0.5s ease-out);
+	&.twitter{
+		background-position: -4px -58px;
+	}
+	&.linkedin{
+		background-position: -4px -108px;	
+	}
+}
+
+.socialLinks li a:hover{
+	opacity: 1;
+}
+
+@import "partials/carousels";
+
+@media only screen and (min-width: 960px) and (max-width: 1160px) {
+	#sideBar .postGallery ul li{
+		margin:0 5px 5px 0;
+	}
+}
+
+@media handheld, only screen and (max-width: 1024px) {
+	.letterboxContent{
+		left:245px;
+	}
+}
+
+@media handheld, only screen and (max-width: 800px){
+	.letterboxContent{
+		left:200px;
+		top:185px;
+	}
+	#sideBar .postGallery.active {
+	    right: 500px;
+	    width: 520px;
+	}
+}
+
+@media handheld, only screen and (min-width: 600px) and (max-width: 768px){
+	.socialLinks{
+		margin-right:22px;
+	}
+}
+
+@media handheld, only screen and (max-width: 600px){
+	.container16 .topNavContainer{
+		margin-bottom:0;
+	}
+	.mainNav, .utilityNav, .desktopOnly{
+		display: none;
+	}
+	.mobileOnly{
+		display: block;
+	}
+
+	.mobileNav{
+		position: relative;
+	}
+	.fullLbx{
+		top:0;
+		margin-bottom: 20px;
+		height:540px;
+	}
+	.letterboxContent{
+		left:0px;
+		top:85px;
+	}
+	.controls a {
+		top:228px;
+		opacity: 1;
+		height: 24px;
+		width:15px;
+		background-position: -132px -130px;
+	}
+	.controls a.right{
+		background-position: -153px -130px;
+	}
+	#sideBarStatic div{
+		float:left;
+		clear: none;
+		margin-right:15px;
+	}
+	#sideBar .postGallery.active{
+		height: 600px;
+	    right: 77px;
+	    top: -20px;
+	    width: 532px;
+	}
+	#sideBar .postGallery #mainGalleryImage{
+		top:0;
+	}
+	#sideBar .postGallery #mainGalleryImage h3, #sideBar .postGallery #mainGalleryImage p{
+		display:none;
+	}
+}
+@media handheld, only screen and (max-width: 550px){
+.postGallery{
+		display:none;
+	}
+}
+@media handheld, only screen and (max-width: 480px){
+	.adSpaceTop{
+		display:none;
+	}
+
+	.controls a {
+		top:215px;
+	}
+}
+@media handheld, only screen and (max-width: 320px){
+	#sideBarStatic div{
+		float:left;
+		clear: none;
+		margin-right:0px;
+	}
+}

@@ -1,0 +1,12 @@
+/*
+Theme Name: Ability Trip Theme
+Theme URI: abilitytrip.com
+Description: A custom designed theme for abilitytrip.com
+Version: 1.0
+Author: Visual Activity
+Author visualactivity.com
+*/
+
+#body_center p {
+color:red;
+}

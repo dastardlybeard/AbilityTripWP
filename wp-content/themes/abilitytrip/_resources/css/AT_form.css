@@ -1,0 +1,122 @@
+/******* FORM FIELDS ********/
+.row {
+padding-bottom: 15px;
+clear: both;
+}
+.rowpadded {
+padding: 10px 0 30px 0;
+}
+.indenttext {
+padding-left: 208px;
+}
+.buttons {
+padding-top: 10px;
+padding-right: 30px;
+padding-left: 125px;
+}
+.buttons a{
+padding-right: 10px;
+}
+#register form {
+margin-top: 20px;
+}
+
+
+form label {
+width: 115px;
+float: left;
+text-align: right;
+padding-right: 8px;
+padding-top: 3px;
+font-size: 11px;
+line-height: 14px;
+font-weight: bold;
+}
+
+form .field label {
+float: none;
+}
+
+form label.error {
+clear: both;
+font-weight: normal;
+color: #ff6767;
+text-align: left;
+width: 167px;
+padding-bottom: 5px;
+}
+/*form#registration label.error[for="email"], form#registration label.error[for="regpassword"] {
+margin-top: -17px;
+}*/
+form .field {
+display: block;
+float: left;
+width: 151px;
+}
+
+form .fielddescription {
+float: right;
+width: 330px;
+color: #5b6b7b;
+font-size: 10px;
+line-height: 13px;
+}
+form p {
+clear: both;
+}
+#register form .txt {
+width: 151px;
+}
+#register form textarea.txt {
+width: 375px;
+}
+.req {
+font-weight: bold;
+color:#c00;
+}
+p.success {
+padding-top:20px;
+color: #009c00;
+}
+p.error {
+color: #ff6767;
+}
+/* Comment Form Additions */
+
+#commentform input.txt,
+#commentform textarea {
+width: 250px;
+}
+
+
+/*
+#commentform {
+padding: 0 0 0 10px;
+}
+
+#commentform p {
+width: 430px;
+height: 25px;
+vertical-align: top;
+}
+
+
+#commentform textarea{width: 430px;}
+
+#commentform label {
+padding:auto 0;
+width: 250px;
+float: left;
+text-align: left;
+padding-left:10px;
+font-size: 10pt;
+font-weight: bold;
+vertical-align: text-top;
+line-height:20px;
+}
+#commentform input {
+width: 150px;
+float: left;
+align: left;
+}
+*/

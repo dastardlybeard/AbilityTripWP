@@ -1,0 +1,11 @@
+/* Login screen */
+
+.login h1 a {
+	background:url("/wp-content/themes/AbilityTrip2013/img/logo.png") no-repeat 0 0;
+	width:302px;
+	height: 96px;
+}
+.login label{
+	color:#ed823e;
+
+}

@@ -1,0 +1,75 @@
+******************************************************************************** 
+PACKAGE-LOG: 06:33:25 
+NOTICE: Do not post to public sites or forums 
+******************************************************************************** 
+duplicator: 0.4.6 
+wordpress: 3.8 
+php: 5.4.10 
+php sapi: apache2handler 
+server: Apache 
+browser: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:25.0) Gecko/20100101 Firefox/25.0 
+package name: 20131222_abilitytrip 
+php_max_time: set from=30 to=5000 
+php_max_memory: set from=40M to=5000M 
+mysql wait_timeout:5000 
+recorded table id: 7 
+******************************************************************************** 
+BUILD SQL SCRIPT: 
+******************************************************************************** 
+wp_commentmeta (0) 
+wp_comments (2) 
+wp_duplicator (1) 
+wp_links (0) 
+wp_options (204) 
+wp_postmeta (427) 
+wp_posts (125) 
+wp_term_relationships (40) 
+wp_term_taxonomy (18) 
+wp_terms (13) 
+wp_usermeta (40) 
+wp_users (2) 
+wp_visual_form_builder_entries (0) 
+wp_visual_form_builder_fields (6) 
+wp_visual_form_builder_forms (1) 
+SQL CREATED: /Users/robertpellow/Desktop/Dastardly Beard/Sites/AbilityTripWP/wp-snapshots/52b7307551dfb2670_20131222_abilitytrip_database.sql 
+SQL FILE SIZE: 670.4KB 
+SQL RUNTIME: 0.3677 sec. 
+******************************************************************************** 
+BUILD ZIP PACKAGE: 
+******************************************************************************** 
+PACKAGE DIR:  /Users/robertpellow/Desktop/Dastardly Beard/Sites/AbilityTripWP 
+PACKAGE FILE: /Users/robertpellow/Desktop/Dastardly Beard/Sites/AbilityTripWP/wp-snapshots/52b7307551dfb2670_20131222_abilitytrip_package.zip 
+FILTER EXTENSIONS:  '' 
+FILTER DIRECTORIES: '' 
+---------------------------------------- 
+STARTING PACKAGE BUILD 
+ADDED=>SQL: /Users/robertpellow/Desktop/Dastardly Beard/Sites/AbilityTripWP/wp-snapshots/52b7307551dfb2670_20131222_abilitytrip_database.sql 
+BUILDING FILE LIST 
+FILE LIST COMPLETE: 1.8560 sec. 
+FILE LIST STATS: Dirs 248 | Files 1993 | Links 0 |  
+
+PACKAGE INFO: ZipArchive Object
+(
+    [status] => 0
+    [statusSys] => 0
+    [numFiles] => 2242
+    [filename] => /Users/robertpellow/Desktop/Dastardly Beard/Sites/AbilityTripWP/wp-snapshots/52b7307551dfb2670_20131222_abilitytrip_package.zip
+    [comment] => 
+)
+ 
+CREATING PACKAGE 
+CLOSING PACKAGE RESULT: '1' 
+PACKAGE FILE SIZE: 34.12MB 
+PACKAGE RUNTIME: 18.9839 sec. 
+******************************************************************************** 
+BUILD INSTALLER FILE: 
+******************************************************************************** 
+INSTALLER FILE: Build Start 
+INSTALLER FILE: Build Finished 
+INSTALLER FILE: Preping for use 
+INSTALLER FILE: Complete [/Users/robertpellow/Desktop/Dastardly Beard/Sites/AbilityTripWP/wp-snapshots/52b7307551dfb2670_20131222_abilitytrip_installer.php] 
+******************************************************************************** 
+FILE SIZE: Zip:34.12MB | SQL:670.4KB | Installer:527.05KB 
+TOTAL PROCESS RUNTIME: 19.9076 sec. 
+DONE PROCESSING => 20131222_abilitytrip 06:33:45 
+******************************************************************************** 
