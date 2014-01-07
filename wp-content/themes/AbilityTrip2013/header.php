@@ -12,6 +12,7 @@
 		<?php endwhile; endif; else : ?>
 		<meta name="description" content="<?php bloginfo('description'); ?>" />
 	<?php endif; ?>
+	<link REL="SHORTCUT ICON" HREF="<?php print(ab_dir) ?>favicon.ico">
 	<link href="<?php print(ab_dir) ?>css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="<?php print(ab_dir) ?>js/easing-min.js"></script>
@@ -22,7 +23,18 @@
 <body>
 	<div class="adSpaceTop">
 		<div class="container12">
-			<p>Ads go here Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, soluta unde quo atque provident. Veritatis, iste pariatur aspernatur at culpa ipsam illum error maiores ipsa eaque deserunt facilis rem mollitia.</p>
+			<div class="column12">
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+					<!-- Responsive Ad 1-2-14 -->
+					<ins class="adsbygoogle"
+					     style="display:block"
+					     data-ad-client="ca-pub-0420758071839028"
+					     data-ad-slot="8089425792"
+					     data-ad-format="auto"></ins>
+					<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+			</div>
 		</div>
 	</div>
 	<div class="pageContents">

@@ -30,6 +30,8 @@ h2{font-size: 1.4em;}
 h3{font-size: 0.85em; margin-bottom:10px;}
 p, span{margin-bottom: 10px;font-size: 0.75em;}
 p span{font-size: 1em;color: $linkColor;}
+ul{margin-bottom:20px;padding-left:15px;}
+li{list-style-type: disc;font-size:0.75em;}
 a{color:#000;}
 p a{color:$linkColor;}
 article{display: block;}
@@ -47,10 +49,12 @@ article a{color:$linkColor;}
 .visible{display:block !important;}
 .pageContents{position: relative;}
 .transBG{@include backgroundColour(255,255,255,0.6);position: relative; z-index:1000;}
-.sticky{position:fixed;top:10px;}
+.sticky{position:fixed;top:40px;@include transition(all 0.5s ease-out);}
 .stuck{position:absolute;bottom:10px;}
 .mobileOnly{display:none;}
 .desktopOnly{display:block;}
+.posRel{position:relative;}
+.posAbs{position:absolute;}
 
 /* HEADER AND NAV STYLES */
 
@@ -88,6 +92,7 @@ article a{color:$linkColor;}
 .utilityNav li, .mainNav li, .footerNav li, .socialLinks li, .destinationFilter li{
 	display: inline-block;
 	margin-left:10px;
+	font-size:1em;
 }
 .utilityNav a, .mainNav li a, .footerNav li a, .socialLinks li a, .destinationFilter li a{
 	font-size: 0.75em;
@@ -143,7 +148,7 @@ article a{color:$linkColor;}
 	@include box-shadow($orange 0 0 4px);
 }
 
-.mainNav li.current-menu-item .locationIndicator{
+.mainNav li.current-menu-item .locationIndicator, .mainNav li.current-menu-parent .locationIndicator, .mainNav li.current-category-ancestor .locationIndicator{
 	display:block;
 }
 
@@ -151,6 +156,7 @@ article a{color:$linkColor;}
 
 #mainContent{
 	position: relative;
+	overflow:hidden;
 }
 
 .destinationFilter p, .destinationFilter ul{
@@ -172,15 +178,19 @@ span.caption{
 	display: block;
 	font-size:1em;
 }
-
+#sideBar ul{
+	padding-left:0;
+}
 #sideBar .quicklinks ul li{
 	display: block;
 	margin-bottom: 5px;
+	font-size:1em;
 }
 #sideBar .quicklinks ul li a{
 	padding-left: 20px;
 	text-decoration: none;
 	color:#333;
+
 }
 #sideBar .quicklinks ul li a:hover{
 	color:#ccc;
@@ -305,6 +315,10 @@ span.caption{
 	text-align: right;
 }
 
+#topicHolder{
+	margin-top:20px;
+}
+
 /* Form styles */
 #simplr-form{
 	background-color: #EEEEEE;
@@ -369,6 +383,8 @@ span.caption{
 #pageFooter{
 	position: relative;
 	overflow: hidden;
+	margin-top:30px;
+	background-color:#fff;
 }
 
 .footer{
@@ -438,9 +454,15 @@ span.caption{
 	.socialLinks{
 		margin-right:22px;
 	}
+	.adSpaceTop{
+		display:none;
+	}
 }
 
 @media handheld, only screen and (max-width: 600px){
+	.adSpaceTop{
+		display:none;
+	}
 	.container16 .topNavContainer{
 		margin-bottom:0;
 	}
@@ -497,10 +519,6 @@ span.caption{
 	}
 }
 @media handheld, only screen and (max-width: 480px){
-	.adSpaceTop{
-		display:none;
-	}
-
 	.controls a {
 		top:215px;
 	}

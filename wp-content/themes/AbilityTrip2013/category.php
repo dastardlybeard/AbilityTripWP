@@ -1,5 +1,9 @@
 <?php get_header(); ?>
 <div class="container12">
+	<div class="column12">
+		<h1><?php single_cat_title(); ?> </h1>
+		<p><?php echo category_description(); ?></p>	
+	</div>
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 		<div class="column6">
 			<h2><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h2>

@@ -67,39 +67,46 @@ function letterboxInit(){
 	$('.letterboxContainer').removeClass('hidden').show();
 	var $elemImgStr = $('.letterboxItem:first').css('background-image').replace('url(', '').replace(')',''),
 	$elemImg = $elemImgStr.replace('"','');
-	$('body').prepend('<img src="'+$elemImg+'" class="hidden" id="jsImg" />');
-	$('#jsImg').load(function(){
-		$('.letterboxItem').removeClass('hidden').hide();
+	if ($elemImg.indexOf('wp-content/uploads') !==-1) {
+		$('body').prepend('<img src="'+$elemImg+'" class="hidden" id="jsImg" />');
+		$('#jsImg').load(function(){
+			$('.letterboxItem').removeClass('hidden').hide();
+			$('.letterboxItem:first').fadeIn(function(){
+				$(this).addClass('active');
+			});
+
+			if ($('.letterboxItem').length > 1) {
+				$('#letterboxContainer .controls').fadeIn();
+			}
+			$('.letterboxControls a').bind('click touch', function(e){
+				e.preventDefault();
+				if(clickableCarouselNav === true){
+					var relatedItems = $(this).closest('.letterboxContainer').children('.letterboxItem');
+					var movementDirection = $(this).attr('class');
+					letterboxMove(movementDirection,relatedItems);
+				}
+			});
+			$('.letterboxItem').bind('swiperight', function(){
+				if(clickableCarouselNav === true){
+					var relatedItems = $('.letterboxContainer:visible').children('.letterboxItem');
+					var movementDirection = 'left';
+					letterboxMove(movementDirection,relatedItems);
+				}
+			});
+			$('.letterboxItem').bind('swipeleft', function(){
+				if(clickableCarouselNav === true){
+					var relatedItems = $('.letterboxContainer:visible').children('.letterboxItem');
+					var movementDirection = 'right';
+					letterboxMove(movementDirection,relatedItems);
+				}
+			});
+		});
+	}else{
+		$('.fullLbx').addClass('textOnly');
 		$('.letterboxItem:first').fadeIn(function(){
 			$(this).addClass('active');
 		});
-
-		if ($('.letterboxItem').length > 1) {
-			$('#letterboxContainer .controls').fadeIn();
-		}
-		$('.letterboxControls a').bind('click touch', function(e){
-			e.preventDefault();
-			if(clickableCarouselNav === true){
-				var relatedItems = $(this).closest('.letterboxContainer').children('.letterboxItem');
-				var movementDirection = $(this).attr('class');
-				letterboxMove(movementDirection,relatedItems);
-			}
-		});
-		$('.letterboxItem').bind('swiperight', function(){
-			if(clickableCarouselNav === true){
-				var relatedItems = $('.letterboxContainer:visible').children('.letterboxItem');
-				var movementDirection = 'left';
-				letterboxMove(movementDirection,relatedItems);
-			}
-		});
-		$('.letterboxItem').bind('swipeleft', function(){
-			if(clickableCarouselNav === true){
-				var relatedItems = $('.letterboxContainer:visible').children('.letterboxItem');
-				var movementDirection = 'right';
-				letterboxMove(movementDirection,relatedItems);
-			}
-		});
-	});
+	}
 }
 //Moving the smaller location carousels
 function locationCarouselMove(containerWidth, movementDirection, carItemWidth, carouselWidth){
@@ -144,19 +151,16 @@ function locationCarouselInit(){
 }
 //Adds a sticky sidebar to the side of the page
 function sideBarStick(){
-	
 	var sideBar = $('#sideBar'),
 		$window = $(window),
 		$stickyArea = $('#mainContent').offset().top,
 		$endOfthePage = parseInt($('#pageFooter').offset().top, 10),
 		$distance = $(sideBar).offset().top;
 	$(window).scroll(function () {
-		if (($window.scrollTop() >= $distance) && (($window.scrollTop() + $window.height()) < $endOfthePage)) {
-			$(sideBar).removeClass('stuck').addClass('sticky');
+		if (($window.scrollTop() >= $distance) && (($window.scrollTop() + $window.height() + 30) < $endOfthePage)) {
+			$(sideBar).addClass('sticky');
 		}else if($window.scrollTop() < $stickyArea){
 			$(sideBar).removeClass('sticky');
-		}else if(($window.scrollTop() + $window.height()) > $endOfthePage +100){
-			$(sideBar).addClass('stuck').removeClass('sticky');
 		}
 	});
 }
@@ -212,6 +216,14 @@ function galleryInit(){
 
 $(document).ready(function(){
 
+	if($('#topicHolder').length > 0){
+		$('#topicHolder').hide();
+		var urlToLoad = $('#topicHolder').attr('rel') + ' #bbpress-forums';
+		$('#topicHolder').load(urlToLoad, function(){
+			$('#topicHolder').fadeIn();
+		});
+	}
+
 		/*isSafari = navigator.userAgent.match(/(Safari)/),
 		isChrome = navigator.userAgent.match(/(Chrome)/),
 		isIos = navigator.platform.match(/(iPad|iPhone|iPod)/);*/
@@ -224,30 +236,29 @@ $(document).ready(function(){
 	if ($('.current-menu-item').length === 0) {
 		if(urlStr.indexOf('forums')!== -1){
 			$('.forumMenu').addClass('current-menu-item');
-		}else{
-			$('#menu-main-menu li').first().addClass('current-menu-item');
 		}
 	}
-	var currentNav = $('#menu-main-menu .current-menu-item'),
+	var currentNav = $('#menu-main-menu .current-menu-item, #menu-main-menu .current-category-ancestor, #menu-main-menu .current-menu-parent'),
 		offset,
 		scrollLocation,
 		pageStart = currentNav.offset();
 	//Above: Set variables and distance between the edge of the page and the position of the 'Current' nav
 	//Below: When we hover over, we get the position of the tag you have hovered over by looking at it's parent id, then setting that as the position to return to. We minus the difference in page start to make sure it always moves to the beginning of the hovered item
-	$('.mainNav li > a').mouseover(function () {
-		scrollLocation = $(this).parent().attr('id');
-        offset = $('#' + scrollLocation).offset();
-        $('.locationIndicator').stop().animate({
-            left: (offset.left - pageStart.left)
-        }, { easing: 'easeInOutCubic' });
-    });
-	
-	// Below: When we mouse out we just move it back to where it started. We could be more programatic but, as we are moving back to the far left, using an absolute is ok in the instance and is clearer to the reader what's happening.
-    $('.mainNav li > a').mouseout(function () {
-        $('.locationIndicator').stop().animate({
-            left: 0
-        }, { easing: 'easeInOutCubic' });
-    });
+	if (currentNav.length >0) {
+		$('.mainNav li > a').mouseover(function () {
+			scrollLocation = $(this).parent().attr('id');
+			offset = $('#' + scrollLocation).offset();
+			$('.locationIndicator').stop().animate({
+				left: (offset.left - pageStart.left)
+			}, { easing: 'easeInOutCubic' });
+		});
+		// Below: When we mouse out we just move it back to where it started. We could be more programatic but, as we are moving back to the far left, using an absolute is ok in the instance and is clearer to the reader what's happening.
+		$('.mainNav li > a').mouseout(function () {
+			$('.locationIndicator').stop().animate({
+				left: 0
+			}, { easing: 'easeInOutCubic' });
+		});
+	}
 	if ($('#letterboxContainer').length > 0){
 		letterboxInit();
 		if (!isMobile) {
@@ -284,6 +295,9 @@ $(document).ready(function(){
 	if ($('.destinationFilter li a').length > 0 ) {
 		destinationFilter();
 	}
+	$('a[rel="external"]').each(function(){
+		$(this).attr('target','blank');
+	});
 	//Mobile navigation:
 	$('.mobileNavTrigger').bind('click touch', function(e){
 		e.preventDefault();

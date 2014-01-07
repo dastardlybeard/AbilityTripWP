@@ -1,10 +1,11 @@
 
 .fullLbx{
 	position: relative;
-	top:-120px;
+	top:-135px;
 	width:100%;
 	height:600px;
 	margin-bottom: -80px;
+	overflow:hidden;
 }
 .fullLbx .letterboxItem{
 	background-repeat: no-repeat;
@@ -15,6 +16,9 @@
 }
 .letterboxItem{
 	position: absolute;
+}
+.fullLbx.textOnly{
+	height:330px;
 }
 .controls{
 	display:none;
@@ -44,7 +48,7 @@
 }
 
 .popularCarouselControls.controls a{
-	top:75px;
+	top:120px;
 	height:25px;
 	width:15px;
 	background-position:-133px -130px;
@@ -61,6 +65,9 @@
 	padding-top:40px;
 	@include backgroundColour(255,255,255,0.8);
 	text-align: center;
+}
+.textOnly .letterboxContent{
+	top:95px;
 }
 
 .letterboxContent h1, .letterboxContent h2, .letterboxContent p{
@@ -149,12 +156,14 @@
 }
 .popularCarouselContainer{
 	display:none;
+	overflow: hidden;
 }
 .popularCarouselContainer ul{
 	position: relative;
 	overflow: hidden;
 	height:170px;
 	left:0;
+	padding-left:0;
 }
 .popularCarouselContainer li{
 	list-style: none;

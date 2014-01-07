@@ -16,10 +16,10 @@
 			
 			?>
 		<div id="pageFooter" class="container12">
-			<h2 class="center">Popular locations</h2>
-			
-			<div class="popularCarouselContainer">
-				<div class="container12">
+			<div class="column9 posRel">
+				<h2>Popular locations</h2>
+				
+				<div class="popularCarouselContainer">
 					<div class="popularCarouselControls controls">
 						<a href="#left" class="left">
 							<
@@ -28,26 +28,40 @@
 							>				
 						</a>
 					</div>
-				</div>
-				<ul>
-					<?php
+					<ul>
+						<?php
 
-					foreach ($featuredDestinations as $post) : setup_postdata($post); ?>
-					   <li>
-						<a href="<?php the_permalink(); ?>">
-							<?php $attachments = new Attachments( 'postthumb' ); ?>
-							<?php if( $attachments->exist() ) : ?>
-								<?php while( $attachment = $attachments->get() ) : ?>
-								<img src="<?php echo $attachments->src( 'full' ); ?>" alt="<?php echo $attachments->field( 'title' ); ?>" />
-							
-								<?php endwhile;
-								 endif; 	
-								 ?>
-							<span class="description"><?php the_title(); ?></span>
-						</a>
-					</li>
-					<?php endforeach; ?>
-				</ul>
+						foreach ($featuredDestinations as $post) : setup_postdata($post); ?>
+						   <li>
+							<a href="<?php the_permalink(); ?>">
+								<?php $attachments = new Attachments( 'postthumb' ); ?>
+								<?php if( $attachments->exist() ) : ?>
+									<?php while( $attachment = $attachments->get() ) : ?>
+									<img src="<?php echo $attachments->src( 'full' ); ?>" alt="<?php echo $attachments->field( 'title' ); ?>" />
+								
+									<?php endwhile;
+									 endif; 	
+									 ?>
+								<span class="description"><?php the_title(); ?></span>
+							</a>
+						</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			</div>
+			<div class="column3">
+				<style>
+				@media(min-width: 800px) { .responsive-ad-1-2-14 { width: 172px; height: 90px; } }
+				</style>
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- Responsive Ad 1-2-14 -->
+				<ins class="adsbygoogle responsive-ad-1-2-14"
+				     style="display:inline-block"
+				     data-ad-client="ca-pub-0420758071839028"
+				     data-ad-slot="8089425792"></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
 			</div>
 		</div>
 		<?php } ?>

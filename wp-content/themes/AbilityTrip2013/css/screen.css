@@ -701,6 +701,14 @@ p span {
   font-size: 1em;
   color: #3495d0; }
 
+ul {
+  margin-bottom: 20px;
+  padding-left: 15px; }
+
+li {
+  list-style-type: disc;
+  font-size: 0.75em; }
+
 a {
   color: #000; }
 
@@ -756,7 +764,11 @@ article a {
 
 .sticky {
   position: fixed;
-  top: 10px; }
+  top: 40px;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out; }
 
 .stuck {
   position: absolute;
@@ -767,6 +779,12 @@ article a {
 
 .desktopOnly {
   display: block; }
+
+.posRel {
+  position: relative; }
+
+.posAbs {
+  position: absolute; }
 
 /* HEADER AND NAV STYLES */
 .header {
@@ -803,7 +821,8 @@ article a {
 
 .utilityNav li, .mainNav li, .footerNav li, .socialLinks li, .destinationFilter li {
   display: inline-block;
-  margin-left: 10px; }
+  margin-left: 10px;
+  font-size: 1em; }
 
 .utilityNav a, .mainNav li a, .footerNav li a, .socialLinks li a, .destinationFilter li a {
   font-size: 0.75em;
@@ -853,12 +872,13 @@ article a {
   -moz-box-shadow: #ed823e 0 0 4px;
   box-shadow: #ed823e 0 0 4px; }
 
-.mainNav li.current-menu-item .locationIndicator {
+.mainNav li.current-menu-item .locationIndicator, .mainNav li.current-menu-parent .locationIndicator, .mainNav li.current-category-ancestor .locationIndicator {
   display: block; }
 
 /* MAIN BODY STYLES */
 #mainContent {
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
 
 .destinationFilter p, .destinationFilter ul {
   float: left;
@@ -877,9 +897,13 @@ span.caption {
   display: block;
   font-size: 1em; }
 
+#sideBar ul {
+  padding-left: 0; }
+
 #sideBar .quicklinks ul li {
   display: block;
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+  font-size: 1em; }
 
 #sideBar .quicklinks ul li a {
   padding-left: 20px;
@@ -1002,6 +1026,9 @@ span.caption {
   float: right;
   text-align: right; }
 
+#topicHolder {
+  margin-top: 20px; }
+
 /* Form styles */
 #simplr-form {
   background-color: #EEEEEE;
@@ -1057,7 +1084,9 @@ span.caption {
 /* FOOTER STYLES */
 #pageFooter {
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  margin-top: 30px;
+  background-color: #fff; }
 
 .footer {
   background-color: #333;
@@ -1098,10 +1127,11 @@ span.caption {
 
 .fullLbx {
   position: relative;
-  top: -120px;
+  top: -135px;
   width: 100%;
   height: 600px;
-  margin-bottom: -80px; }
+  margin-bottom: -80px;
+  overflow: hidden; }
 
 .fullLbx .letterboxItem {
   background-repeat: no-repeat;
@@ -1112,6 +1142,9 @@ span.caption {
 
 .letterboxItem {
   position: absolute; }
+
+.fullLbx.textOnly {
+  height: 330px; }
 
 .controls {
   display: none; }
@@ -1140,7 +1173,7 @@ span.caption {
     opacity: 1; }
 
 .popularCarouselControls.controls a {
-  top: 75px;
+  top: 120px;
   height: 25px;
   width: 15px;
   background-position: -133px -130px;
@@ -1156,6 +1189,9 @@ span.caption {
   background-color: white;
   background-color: rgba(255, 255, 255, 0.8);
   text-align: center; }
+
+.textOnly .letterboxContent {
+  top: 95px; }
 
 .letterboxContent h1, .letterboxContent h2, .letterboxContent p {
   opacity: 0;
@@ -1234,13 +1270,15 @@ span.caption {
   background: url("../img/sprite.png") no-repeat -83px -135px; }
 
 .popularCarouselContainer {
-  display: none; }
+  display: none;
+  overflow: hidden; }
 
 .popularCarouselContainer ul {
   position: relative;
   overflow: hidden;
   height: 170px;
-  left: 0; }
+  left: 0;
+  padding-left: 0; }
 
 .popularCarouselContainer li {
   list-style: none;
@@ -1283,8 +1321,14 @@ span.caption {
     width: 520px; } }
 @media handheld, only screen and (min-width: 600px) and (max-width: 768px) {
   .socialLinks {
-    margin-right: 22px; } }
+    margin-right: 22px; }
+
+  .adSpaceTop {
+    display: none; } }
 @media handheld, only screen and (max-width: 600px) {
+  .adSpaceTop {
+    display: none; }
+
   .container16 .topNavContainer {
     margin-bottom: 0; }
 
@@ -1336,9 +1380,6 @@ span.caption {
   .postGallery {
     display: none; } }
 @media handheld, only screen and (max-width: 480px) {
-  .adSpaceTop {
-    display: none; }
-
   .controls a {
     top: 215px; } }
 @media handheld, only screen and (max-width: 320px) {

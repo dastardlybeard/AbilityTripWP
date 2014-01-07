@@ -42,6 +42,7 @@ function destination_meta_options(){
         $activities = $custom["activities"][0];
         $medical = $custom["medical"][0];
         $tips = $custom["tips"][0];
+        $appQuery = $custom["appQuery"][0];
 ?>  
 
 <style type="text/css">
@@ -94,10 +95,48 @@ function destination_meta_options(){
             wp_editor( $content, $editor_id );
         ?>
     </div>
+    <div class="fieldContainer">
+        <label>Advertise Mobile App?</label>
+        <?php 
+            $content = $appQuery;
+            $editor_id = 'appQuery';
+            ?>
+            <input type="checkbox" name="appQuery" <?php if( $appQuery == true ) { ?>checked="checked"<?php } ?> /> If checked, will display an ad to download the app.
+    </div>
+
+    <div class="fieldContainer">
+        <label>Associated forum topic</label>
+        <?php 
+        $saved = get_post_meta($post->ID,'topicChooser',true);
+            if (empty($saved))
+                $saved = array();
+        ?>
+        <select name="topicChooser" id="topicChooser">
+        <option value="" <?php selected( $selected, 'blank' ); ?>>None</option> 
+        <?php
+        global $wpdb;
+
+        $query="SELECT * FROM wp_posts WHERE post_type='topic' ORDER BY post_modified DESC LIMIT 10";
+
+        $results=$wpdb->get_results($query);
+
+        foreach ($results as $result) {
+            $guid = $result->guid;
+            $postId = explode("p=", $guid);
+            $savedId = explode("p=", $saved);
+            $title = $result->post_title
+                ?>
+            <option value="<?php echo $guid; ?>" <?php if($postId[1] == $savedId[1]){ echo 'selected="selected"';}?>> <?php echo $title ?></option>
+            <?php
+            }
+
+        ?>
+
+        </select>
+    </div>
 </div>
 <?php  
-    } 
-    
+    }     
 add_action('save_post', 'destination_save_extras'); 
   
 function destination_save_extras(){  
@@ -111,6 +150,8 @@ function destination_save_extras(){
         update_post_meta($post->ID, "activities", $_POST["activities"]);
         update_post_meta($post->ID, "medical", $_POST["medical"]);
         update_post_meta($post->ID, "tips", $_POST["tips"]); 
+        update_post_meta($post->ID, "appQuery", $_POST["appQuery"]); 
+        update_post_meta($post->ID, "topicChooser", $_POST["topicChooser"]); 
     } 
 }  
 

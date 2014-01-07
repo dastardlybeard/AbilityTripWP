@@ -31,22 +31,18 @@
 						$theTerms = $theTerms[1];
 					}
 					?>
-				
+				<?php $attachments = new Attachments( 'postthumb' ); ?>
+					<?php if( $attachments->exist() ) : ?>
 				<div class="column3 destination <?php echo $theTerms->slug ?>">
 					<a href="<?php the_permalink(); ?>">
-					
-					<?php $attachments = new Attachments( 'postthumb' ); /* pass the instance name */ ?>
-					<?php if( $attachments->exist() ) : ?>
 						<?php while( $attachment = $attachments->get() ) : ?>
 						<img src="<?php echo $attachments->src( 'full' ); ?>" alt="<?php echo $attachments->field( 'title' ); ?>" />
-						
-					<?php endwhile;
-					 endif; 	
-					 ?>
+					<?php endwhile; ?>
 					<span class="description"><?php the_title(); ?></span></a>
 				</div>
 				
 				<?php 
+					endif; 	
 					endwhile;
 					endif;
 				?>

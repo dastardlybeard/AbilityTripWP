@@ -83,7 +83,6 @@ function gallery( $attachments )
 
   $attachments->register( 'gallery', $args ); // unique instance name
 }
-
 add_action( 'attachments_register', 'gallery' );
 
 function postThumb( $attachments )

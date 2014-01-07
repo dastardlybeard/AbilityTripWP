@@ -8,6 +8,8 @@
         $activities = $custom["activities"][0];
         $medical = $custom["medical"][0];
         $tips = $custom["tips"][0];
+        $appQuery = $custom["appQuery"][0];
+        $topicChooser = $custom["topicChooser"][0];
         $heroImage = get_the_post_thumbnail( $post_id );
 
         ?>
@@ -23,7 +25,6 @@
 				</div>
 			</div>
 			<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
-			<?php if ($image[0] != ''): ?>
 				<div class="letterboxItem hidden" style="background-image:url('<?php echo $image[0]; ?> ')">
 					<div class="container12">
 						<div class="column6 letterboxContent">
@@ -33,7 +34,6 @@
 						</div>
 					</div>
 				</div>
-			<?php endif ?>
 		</div>
 		<div class="container12" id="mainContent">
 			<div class="quicklinks mobileOnly column12">
@@ -54,7 +54,6 @@
 					<?php if ($tips != ''): ?>
 						<li><a href="#tips" class="tips">Tips and tricks</a></li>
 					<?php endif ?>
-					<li><a href="#login" class="login">Add your information</a></li>
 				</ul>
 			</div>
 			<article class="column9">
@@ -88,6 +87,19 @@
 						<?php echo wpautop($tips, $br) ?>
 					</div>
 				<?php endif ?>
+				<?php if ($appQuery != ''): ?>
+					<div class="section" id="appQuery">
+						<h2>Travelling to <?php the_title() ?> soon?</h2>
+						<p>Download the AbilityTrip mobile application to get detailed information on the accessible features of popular destinations around the globe. Each city is carefully documented by local writers who know what to capture so you can make fully-informed decisions – even while on-the-go. With rich content on hotels, attractions, restaurants, transportation, medical services and more, you’ll never be short on options.</p>
+						<p>The app is free, and comes preloaded with Chicago documentation. Additional cities can be purchased in-app for $2.99 each.</p>
+						<a href="https://itunes.apple.com/us/app/abilitytrip-mobile-accessible/id517375464?mt=8" rel="external">
+							<img src="<?php print(ab_dir) ?>img/badge_appstore-lrg.png" alt="Download on the App Store" />
+						</a>
+					</div>
+				<?php endif ?>
+				<?php if ($topicChooser != ''): 
+					echo '<div id="topicHolder" rel="'.$topicChooser.'"></div>';
+				endif ?> 
 			</article>
 			
 			<div id="sideBar" class="column3">
@@ -109,7 +121,6 @@
 						<?php if ($tips != ''): ?>
 							<li><a href="#tips" class="tips">Tips and tricks</a></li>
 						<?php endif ?>
-						<li><a href="#login" class="login">Add your information</a></li>
 					</ul>
 				</div>
 				<?php $attachments = new Attachments( 'gallery' ); ?>
